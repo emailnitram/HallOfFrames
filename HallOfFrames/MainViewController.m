@@ -21,17 +21,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    Picture *pic1 = [Picture initWithImage:(UIImage *)image andColor:(UIColor *)color]
-//    self.people = [@[@"people.jpg",@"people1.jpg",@"people2.jpg",@"people3.jpg"] mutableCopy];
     [self loadPeopleArrayWithPictures];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)loadPeopleArrayWithPictures {
+    self.people = [[NSMutableArray alloc] init];
     NSMutableArray *peopleStrings = [@[@"people.jpg",@"people1.jpg",@"people2.jpg",@"people3.jpg"] mutableCopy];
     UIColor *color = [UIColor whiteColor];
     for (int i = 0; i < peopleStrings.count; i++) {
@@ -42,8 +40,6 @@
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    NSString *person = self.people[indexPath.row];
-//    UIColor *color = [UIColor whiteColor];
     Picture *pic = self.people[indexPath.row];
     PictureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PictureCollectionViewCell" forIndexPath:indexPath];
     [cell loadCellWithPicture:pic];
@@ -62,11 +58,9 @@
 }
 
 -(void)customColorViewCell:(id)customView didTapButton:(UIButton *)button {
-//    [self collectionView:self.collectionView didDeselectItemAtIndexPath:self.currentCellIndex]
-//    PictureCollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:self.currentCellIndex];
     Picture *currentPic = self.people[self.currentCellIndex.row];
     currentPic.frameColor = button.backgroundColor;
-//    [self.collectionView relo];
+    [self.collectionView reloadInputViews];
     [customView removeFromSuperview];
 
 }
