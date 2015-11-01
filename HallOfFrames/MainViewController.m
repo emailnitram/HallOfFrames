@@ -14,7 +14,7 @@
 @interface MainViewController () <UICollectionViewDataSource, UICollectionViewDelegate, CustomColorDelegate>
 @property NSMutableArray *people;
 @property NSIndexPath *currentCellIndex;
-@property (weak, nonatomic) IBOutlet PictureCollectionViewCell *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *cView;
 @end
 
 @implementation MainViewController
@@ -60,9 +60,8 @@
 -(void)customColorViewCell:(id)customView didTapButton:(UIButton *)button {
     Picture *currentPic = self.people[self.currentCellIndex.row];
     currentPic.frameColor = button.backgroundColor;
-    [self.collectionView reloadInputViews];
+    [self.cView reloadData];
     [customView removeFromSuperview];
-
 }
 
 

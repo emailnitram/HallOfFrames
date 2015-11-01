@@ -65,7 +65,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="dUD-mK-9Ok" id="ULS-uF-Vhi"/>
+                        <outlet property="cView" destination="dUD-mK-9Ok" id="tPc-aO-54n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
